@@ -12,6 +12,7 @@
     "lintfix": "eslint src --fix --cache"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
@@ -23,6 +24,7 @@
     "winston": "^3.6.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.12",
     "@types/csurf": "^1.11.2",

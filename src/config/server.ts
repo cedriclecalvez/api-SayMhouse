@@ -9,17 +9,17 @@ class Server {
     this.app = app;
   }
 
-  // async connecte(db: any,logger: Logger) {
-  //   try {
-  //     // await db.associateAll(db.sequelize.models)
-  //     await db.connect();
-  //     console.log("[App]: Connected to Bdd");
-  //   } catch (err:any) {
-  //     console.error(err);
-  //     logger.log(500, err.message)
+  async connecte(db: any,logger: Logger) {
+    try {
+      // await db.associateAll(db.sequelize.models)
+      await db.connect();
+      console.log("[App]: Connected to Bdd");
+    } catch (err:any) {
+      console.error(err);
+      logger.log(500, err.message)
   
-  //   }
-  // }
+    }
+  }
 
   initializeMiddlewares(middlewares: any) {
     for (const key in middlewares) {
