@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "author": "Cédric Le Calvez",
-  "repository": "",
+  "repository": "https://github.com/cedriclecalvez/api-SayMhouse.git",
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./build && tsc",
@@ -12,7 +12,9 @@
     "lintfix": "eslint src --fix --cache"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "csurf": "^1.11.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "morgan": "^1.10.0",
@@ -21,7 +23,9 @@
     "winston": "^3.6.0"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.12",
+    "@types/csurf": "^1.11.2",
     "@types/express": "^4.17.13",
     "@types/morgan": "^1.9.3",
     "@types/node": "^17.0.18",
