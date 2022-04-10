@@ -15,7 +15,7 @@ class Server {
       await db.connect();
       console.log("[App]: Connected to Bdd");
     } catch (err:any) {
-      console.error(err);
+      console.error("Error while connection to Bdd",err);
       logger.log(500, err.message)
   
     }

@@ -1,0 +1,36 @@
+import {Request,Response,NextFunction} from "express"
+import { ApiError } from "../../helpers/error";
+import { IRoomService } from './service';
+
+export default class RoomController{
+    private roomService;
+    constructor(roomService: IRoomService){
+        this.roomService = roomService;
+
+    }
+
+    hello = async (req : Request, res : Response, next : NextFunction) => {
+        try {
+            
+            console.log("hello backend module room");
+            res.status(200).json({message:"hello backend"})
+        } catch (err:any) {
+            // throw new ApiError (404,"la route ne fonctionne pas");
+            next(err)
+            
+        }
+        
+    }
+
+    register = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            // console.log('toto');
+
+            const room = await this.roomService.register({...req.body});
+            res.status(201).json(room);
+        }
+        catch (err) {
+            next(err);
+        }
+    }
+}
