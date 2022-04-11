@@ -6,6 +6,7 @@ import { RoomEntity } from "./entity";
 
 export interface IRoomService {
   register(roomData: any): Promise<RoomDTO>;
+  getList(): Promise<any>;
 }
 
 export default class RoomService implements IRoomService {
@@ -30,5 +31,11 @@ export default class RoomService implements IRoomService {
 
       return new RoomDTO(newRoom);
     }
+  }
+
+  async getList() {
+    const roomList = await this.roomRepository.listRooms();
+
+    return roomList;
   }
 }

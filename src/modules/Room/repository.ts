@@ -5,6 +5,7 @@ export interface IRoomRepository {
   // addNew(userEntity: any) : Promise<any>
   addNew({ name }: any): Promise<any>;
   findByName(name: string): Promise<any | undefined>;
+  listRooms(): Promise<any>;
 }
 
 @EntityRepository()
@@ -19,6 +20,12 @@ class RoomRepository implements IRoomRepository {
 
   async findByName(name: string) {
     return await this.manager.findOne(RoomEntity, { where: { name: name } });
+  }
+
+  // dont work
+  async listRooms() {
+
+    return await this.manager.find(RoomEntity);
   }
 }
 

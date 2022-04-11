@@ -5,10 +5,11 @@ import RoomController from "./controller";
 export default (controller: RoomController) => {
   const roomRouter = Router();
 
-  roomRouter.route("/testRoutes").get(controller.hello)
-   
+  roomRouter.route("/testRoutes").get(controller.hello);
+
   // userRouter.route("/").get(auth.isAuth, controller.getAll).post(controller.register);
   roomRouter.route("/register").post(controller.register);
+  roomRouter.route("/list").get(controller.list);
 
   // userRouter.route(`/auth`).post(controller.login);
 
