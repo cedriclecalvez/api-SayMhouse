@@ -5,6 +5,7 @@ import middlewares, {logger} from './middlewares';
 import routes from "./config/routes"
 import {handleError} from "./helpers/error"
 import config from './config/constant';
+import ServerSocketIo from './config/socket-server';
 
 const app = express();
 
@@ -14,4 +15,7 @@ server.connecte(db,logger);
 server.initializeMiddlewares(middlewares);
 server.routes(routes)
 server.errorHandler(handleError)
-server.start(config.app_port);
+server.start(config.api_port);
+
+const serverSocketIo = new ServerSocketIo(app)
+serverSocketIo.start(config.socket_port)
