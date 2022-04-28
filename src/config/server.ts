@@ -13,7 +13,7 @@ class Server {
     try {
       // await db.associateAll(db.sequelize.models)
       await db.connect();
-      console.log("[App]: Connected to Bdd");
+      console.log("[Bdd]: Connected to Bdd");
     } catch (err:any) {
       console.error("Error while connection to Bdd",err);
       logger.log(500, err.message)
