@@ -10,6 +10,7 @@ export default (controller: RoomController) => {
   // userRouter.route("/").get(auth.isAuth, controller.getAll).post(controller.register);
   roomRouter.route("/register").post(controller.register);
   roomRouter.route("/list").get(controller.list);
+  roomRouter.route("/one/:id").get(controller.oneRoom);
 
   // userRouter.route(`/auth`).post(controller.login);
 

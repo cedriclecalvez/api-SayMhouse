@@ -34,9 +34,19 @@ export default class RoomController {
       // console.log('toto');
 
       const rooms = await this.roomService.getList();
-      console.log(" controller listRooms",rooms);
+      console.log(" controller listRooms", rooms);
 
       res.status(201).json(rooms);
+    } catch (err) {
+      next(err);
+    }
+  };
+  oneRoom = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const roomId = req.params.id;
+      const room = await this.roomService.getRoom(roomId);
+      console.log("controller oneRoom ===>", room);
+      res.status(201).json(room);
     } catch (err) {
       next(err);
     }
