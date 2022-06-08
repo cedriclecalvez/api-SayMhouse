@@ -1,4 +1,4 @@
-class JwtService {
+export class JwtService {
     private jwt;
     private secret;
     constructor(jwt: any, secret: string) {
@@ -15,4 +15,3 @@ class JwtService {
     }
 }
 
-export {JwtService}
