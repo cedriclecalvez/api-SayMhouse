@@ -31,7 +31,7 @@ export default class ServerSocketIo {
       //         }
       socket.on("data received from user", (data) => {
         console.log(`New data received : ${data}`);
-
+        
         // this.newDataSocketReceived.push(data, { dateResponse: new Date() });
         this.newDataSocketReceived.push({data,  dateResponse: new Date() });
         console.log("result data socket : ", this.newDataSocketReceived);

@@ -23,6 +23,7 @@ export default class RoomController {
       // console.log('toto');
 
       const room = await this.roomService.register({ ...req.body });
+      // const room = await this.roomService.register(req.body );
       res.status(201).json(room);
     } catch (err) {
       next(err);

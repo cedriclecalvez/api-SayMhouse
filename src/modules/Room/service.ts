@@ -36,6 +36,8 @@ export default class RoomService implements IRoomService {
 
   async getList() {
     const roomList = await this.roomRepository.listRooms();
+    console.log("ask a list of rooms");
+    
     return roomList;
   }
 
