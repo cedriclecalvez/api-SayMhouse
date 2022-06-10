@@ -11,9 +11,9 @@ export class UserEntity extends BaseEntity {
   @Column()
   password: string;
 
-  @Column()
+  @Column("longtext")
   access_token: string;
 
-  @Column()
+  @Column("longtext")
   refresh_token: string;
 }

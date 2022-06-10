@@ -4,7 +4,6 @@ import { UserEntity } from "./entity";
 import { IUserRepository } from "../interfaces/user.interface";
 
 
-
 @EntityRepository()
 class UserRepository implements IUserRepository {
   constructor(private manager: EntityManager) {}
