@@ -1,6 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { userType } from "../types/entities.type";
-import {UserEntity} from "../User/entity";
 import IUserService from "../User/service";
 
 export interface IUserRepository {
@@ -18,7 +16,7 @@ export interface IUserRepository {
 export interface IUserController {
   userService: IUserService;
   hello(req: Request, res: Response, next: NextFunction): Promise<void>;
-  
+
   findAllUsers(req: Request, res: Response, next: NextFunction): Promise<void>;
 
   register(req: Request, res: Response, next: NextFunction): Promise<void>;
