@@ -1,8 +1,8 @@
 export class MessageDTO {
     id: any;
-    message: string;
-    constructor({id,message}: {id: any, message: string}){
+    contain: string;
+    constructor({id,contain}: {id: any, contain: string}){
         this.id = id
-        this.message = message
+        this.contain = contain
     }
 }

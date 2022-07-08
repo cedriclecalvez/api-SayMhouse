@@ -38,6 +38,7 @@ export default class UserController implements IUserController {
       next(err);
     }
   };
+  
   register = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const user = await this.userService.register({ ...req.body });

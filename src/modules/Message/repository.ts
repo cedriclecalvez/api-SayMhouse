@@ -9,9 +9,9 @@ class MessageRepository implements IMessageRepository {
   async findAllMessages() {
     return await this.manager.find(MessageEntity);
   }
-  async addNew(message: string) {
+  async addNew(contain: string) {
     return await this.manager.save(MessageEntity, {
-      message,
+      contain
     });
   }
 }

@@ -1,11 +1,11 @@
 import userRouter from '../modules/User';
-import roomRouter from '../modules/Room';
+import ticketRouter from '../modules/Ticket';
 import messageRouter from '../modules/Message';
 
 const routes = {
-  '/users': userRouter,
-  '/rooms': roomRouter,
-  '/messages': messageRouter,
+  '/user': userRouter,
+  '/ticket': ticketRouter,
+  '/message': messageRouter,
 }
 
 export default routes;

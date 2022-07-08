@@ -4,7 +4,7 @@ import IMessageService from "../Message/service";
 export interface IMessageRepository {
   findAllMessages(): Promise<any[]>;
 
-  addNew({ email, password }: any): Promise<any>;
+  addNew(contain: any): Promise<any>;
 }
 
 export interface IMessageController {

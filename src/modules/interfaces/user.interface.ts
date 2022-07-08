@@ -4,7 +4,13 @@ import IUserService from "../User/service";
 export interface IUserRepository {
   findAllUser(): Promise<any[]>;
 
-  addNew({ email, password }: any): Promise<any>;
+  addNew({
+    firstname,
+    lastname,
+    address,
+    email,
+    password,
+  }: any): Promise<any>;
 
   findByEmail(email: string): Promise<any | undefined>;
 

@@ -17,13 +17,27 @@ export default class UserService {
     console.log("users in getAll()====>", users);
     return users;
   }
-  async register(userData: { email: string; password: string }) {
-    const { email, password } = { ...userData };
 
-    if (!email || !password) {
-      throw new ApiError(403, "missing email or password or both");
+  async register(userData: {
+    firstname: string;
+    lastname: string;
+    address: string;
+    email: string;
+    password: string;
+  }) {
+    const { firstname, lastname, address, email, password } = {
+      ...userData,
+    };
+
+    if (
+      !firstname ||
+      !lastname ||
+      !email ||
+      !address ||
+      !password
+    ) {
+      throw new ApiError(403, "missing data to register");
     }
-
     const isUserExist: any = await this.userRepository.findByEmail(email);
     // return isUserExist || 'email does not exist'
     if (isUserExist) {
@@ -37,7 +51,6 @@ export default class UserService {
   // login service
   async login(userData: { email: string; password: string }) {
     const { email, password } = { ...userData };
-    console.log("email===", email);
 
     if (!email || !password) {
       throw new ApiError(403, "missing email or password or both");
@@ -65,6 +78,4 @@ export default class UserService {
 
     return user;
   }
-
- 
 }

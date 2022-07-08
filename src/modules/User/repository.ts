@@ -3,20 +3,26 @@ import bcrypt from "bcrypt";
 import { UserEntity } from "./entity";
 import { IUserRepository } from "../interfaces/user.interface";
 
-
 @EntityRepository()
 class UserRepository implements IUserRepository {
   constructor(private manager: EntityManager) {}
 
-
   async findAllUser() {
     return await this.manager.find(UserEntity);
   }
-  async addNew({ email, password }: any) {
+  async addNew({
+    email,
+    password,
+    firstname,
+    lastname,
+    address,
+  }: any) {
     const passHash = await bcrypt.hash(password, 10);
-    console.log("password hashed: ", passHash);
 
     return await this.manager.save(UserEntity, {
+      firstname,
+      lastname,
+      address,
       email,
       password: passHash,
       access_token: "",

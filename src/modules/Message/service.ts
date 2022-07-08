@@ -15,8 +15,8 @@ export default class UserService {
     return messages;
   }
 
-  async register(message: string) {
-    const newMessage: any = await this.messageRepository.addNew(message);
+  async register(contain: string) {
+    const newMessage: any = await this.messageRepository.addNew(contain);
     return newMessage
   }
 }
