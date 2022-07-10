@@ -9,7 +9,15 @@ export type userType = {
   refresh_token: string | null;
 };
 
+export type ticketType = {
+  tickets: any;
+  id: string;
+  name: string;
+  status: string;    
+}; 
+
 export type messageType = {
   id: string;
-  message: string;    
+  messageDate: Date;
+  contain: string;     
 };

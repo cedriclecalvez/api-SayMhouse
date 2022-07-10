@@ -5,7 +5,9 @@ import {
   BaseEntity,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
+import { TicketEntity } from "../Ticket/entity";
 
 @Entity("Message")
 export class MessageEntity extends BaseEntity {
@@ -14,10 +16,13 @@ export class MessageEntity extends BaseEntity {
 
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date;
-  
+
   @UpdateDateColumn({ name: "updated_at" })
   updatedAt: Date;
 
-  @Column()
+  @Column("longtext")
   contain: string;
+
+  @ManyToOne(() => TicketEntity, (ticket) => ticket.messages)
+  ticket: TicketEntity[];
 }

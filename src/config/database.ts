@@ -10,6 +10,7 @@ const options: ConnectionOptions = {
     "database": config.db_name,
     // "logging": true,
     "synchronize":true,
+    "dropSchema":false,
     "entities": [__dirname + "/../modules/**/entity.{js,ts}"],
     "migrations": ["src/config/migration/*.js"],
     "cli": {

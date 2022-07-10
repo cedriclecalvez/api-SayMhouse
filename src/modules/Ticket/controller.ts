@@ -20,10 +20,10 @@ export default class TicketController {
 
   register = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      // console.log('toto');
-
-      // const ticket = await this.ticketService.register({...req.body});
-      const ticket = await this.ticketService.register(req.body.name);
+      const { refresh_token } = req.cookies;
+      if (!refresh_token)
+        return res.status(401).json("4:Access denied. Your session expired");
+      const ticket = await this.ticketService.register(req.body, refresh_token);
       res.status(201).json(new TicketDTO(ticket));
     } catch (err) {
       next(err);
@@ -32,16 +32,31 @@ export default class TicketController {
 
   list = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      // console.log('toto');
-
       const tickets = await this.ticketService.getList();
-      console.log(" controller listtickets", tickets);
+      console.log(" controller All Tickets List", tickets);
 
       res.status(201).json(tickets);
     } catch (err) {
       next(err);
     }
   };
+
+  myTicketsList = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { refresh_token } = req.cookies;
+      if (!refresh_token)
+        return res.status(401).json("4:Access denied. Your session expired");
+      const myTtickets = await this.ticketService.getPersonalList(
+        refresh_token
+      );
+      console.log(" controller myTicketsList", myTtickets);
+
+      res.status(201).json(myTtickets);
+    } catch (err) {
+      next(err);
+    }
+  };
+
   oneTicket = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const ticketId = req.params.id;

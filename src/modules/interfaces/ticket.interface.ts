@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import ITicketService from "../Ticket/service";
 
 export interface ITicketRepository {
+  findByRelations(decodedToken: any): any;
 
   addNew({ name, isProcessing }: any): Promise<any>;
 
