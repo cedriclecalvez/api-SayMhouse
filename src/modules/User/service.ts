@@ -14,7 +14,7 @@ export default class UserService {
   async getAllUsers() {
     // findAll method
     const users: any = await this.userRepository.findAllUser();
-    console.log("users in getAll()====>", users);
+    // console.log("users in getAll()====>", users);
     return users;
   }
 

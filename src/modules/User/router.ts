@@ -12,7 +12,7 @@ export default (controller: UserController) => {
   userRouter.route("/auth/login").post(controller.login);
 
   // userRouter.route("/").get(auth.isAuth, controller.getAll).post(controller.register);
-  userRouter.route("/allUsers").get(auth.isAuth, controller.findAllUsers);
+  userRouter.route("/auth/allUsers").get(auth.isAuth, controller.findAllUsers);
 
   userRouter.route("/auth/register").post(controller.register);
 

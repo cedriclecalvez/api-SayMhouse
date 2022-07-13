@@ -31,7 +31,7 @@ export default class UserController implements IUserController {
     next: NextFunction
   ): Promise<void> => {
     try {
-      console.log("req.headers.authorisation ===>", req.headers.authorisation);
+      console.log("req.headers.authorization ===>", req.headers.authorization);
       let users = await this.userService.getAllUsers();
       res.status(200).json(users.map((user: any) => new UserDTO(user)));
     } catch (err) {
@@ -75,7 +75,7 @@ export default class UserController implements IUserController {
   ) => {
     try {
       const { refresh_token } = req.cookies;
-      console.log("req.cookies", req.cookies);
+      // console.log("req.cookies", req.cookies);
 
       if (!refresh_token)
       return res.status(498).json("4:Access denied. Your session expired");
@@ -85,7 +85,7 @@ export default class UserController implements IUserController {
       const user: any = await UserEntity.findOne({ where: { id: decoded.id } });
       
       user.access_token = await this.jwt.generateAccessToken(user);
-      console.log("refresh route user===>",user.access_token);
+      // console.log("refresh route user===>",user.access_token);
 
       await user.save();
       // console.log(user);
@@ -121,7 +121,7 @@ export default class UserController implements IUserController {
 
       await user.save();
       res.removeHeader("Authorization");
-      res.status(200).json();
+      res.status(200).json({message:"logout completed"});
     } catch (e) {
       next(e);
     }

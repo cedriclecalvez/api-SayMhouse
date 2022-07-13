@@ -9,7 +9,7 @@ export default (controller: TicketController) => {
 
   // userRouter.route("/").get(auth.isAuth, controller.getAll).post(controller.register);
   ticketRouter.route("/register").post(controller.register);
-  ticketRouter.route("/list").get(controller.list);
+  ticketRouter.route("/auth/list").get(auth.isAuth,controller.list);
   ticketRouter.route("/auth/myTickets").get(auth.isAuth,controller.myTicketsList);
   ticketRouter.route("/one/:id").get(controller.oneTicket);
 

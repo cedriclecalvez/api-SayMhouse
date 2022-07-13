@@ -21,6 +21,7 @@ const auth = new AuthMiddleware(jwtService);
 const logger = new Logger(winston);
 const csrf = csurf({ cookie: true });
 // const corsOptions = { origin: "nom du domaine", credentials: true };
+// const corsOptions = {origin:"*",credentials:true,exposedHeaders: 'Authorization'};
 const corsOptions = {origin:'http://localhost:3000',credentials:true,exposedHeaders: 'Authorization'};
 
 // export all custom middlewares

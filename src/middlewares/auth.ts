@@ -14,6 +14,9 @@ class AuthMiddleware {
       let access_token = req.headers.authorization.split(" ")[1];
       const refreshToken = req.cookies["refresh_token"];
 
+      if (!access_token) {
+        return res.status(401).json("Access denied. Unauthorized");
+      }
       if (!refreshToken) {
         return res.status(401).json("Access denied. Your session expired");
       }
